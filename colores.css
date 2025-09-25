@@ -1,0 +1,274 @@
+h1 {
+  text-align: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.palette-bg {
+  background-color: #FAFAFA;
+  padding: 40px;
+}
+
+.palette-flex {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+}
+
+.color-item {
+  width: 150px;
+  height: 150px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(44,44,44,0.08);
+}
+
+.color-label {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.color-blanco {
+  background-color: #FAFAFA;
+  border: 2px solid #9ADBC5;
+  color: #2C2C2C;
+}
+
+.color-verde {
+  background-color: #9ADBC5;
+  color: #2C2C2C;
+}
+
+.color-salmon {
+  background-color: #F6A6A1;
+  color: #2C2C2C;
+}
+
+.color-gris-oscuro {
+  background-color: #2C2C2C;
+  color: #FAFAFA;
+}
+
+.color-amarillo {
+  background-color: #F6E27F;
+  color: #2C2C2C;
+}
+
+.guide-section {
+  max-width: 600px;
+  margin: 40px auto 0 auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(44,44,44,0.06);
+  padding: 32px;
+}
+
+.guide-title {
+  text-align: center;
+  color: #2C2C2C;
+  font-family: inherit;
+  margin-bottom: 24px;
+}
+
+.guide-list {
+  color: #2C2C2C;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  padding-left: 18px;
+}
+
+.guide-item {
+  margin-bottom: 18px;
+}
+
+.guide-strong {
+}
+
+.guide-code {
+  display: inline-block;
+  background: #FAFAFA;
+  border: 1px solid #E0E0E0;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-family: monospace;
+}
+
+.guide-em {
+}
+
+.guide-note {
+  color: #888;
+}
+
+.typography-title {
+  text-align: center;
+  color: #F6A6A1;
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.3rem;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+  background: linear-gradient(90deg, #FAFAFA 0%, #F6E27F 100%);
+  border-radius: 12px;
+  padding: 12px 0;
+  box-shadow: 0 2px 8px rgba(246,166,161,0.08);
+}
+
+.typography-sample {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4rem;
+  color: #1a1110;
+  margin-bottom: 8px;
+}
+
+.typography-code {
+  display: inline-block;
+  background: #FAFAFA;
+  border: 1px solid #E0E0E0;
+  border-radius: 4px;
+  padding: 2px 10px;
+  font-family: monospace;
+  color: #2C2C2C;
+}
+
+.typography-note {
+  margin-top: 12px;
+  color: #888;
+  font-size: 1.05rem;
+}
+
+.typography-sample-secondary {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.5rem;
+  color: #2C2C2C;
+  margin-bottom: 8px;
+}
+
+.palette-beige {
+  background-color: #FFF8F0;
+  padding: 40px;
+}
+
+.color-beige {
+  background-color: #FFF8F0;
+  border: 2px solid #A3D5FF;
+  color: #333333;
+}
+
+.color-azul {
+  background-color: #A3D5FF;
+  color: #333333;
+}
+
+.color-rosa {
+  background-color: #FFB7C5;
+  color: #333333;
+}
+
+.color-amarillo-pastel {
+  background-color: #FFD97D;
+  color: #333333;
+}
+
+.color-gris-oscuro-pastel {
+  background-color: #333333;
+  color: #FFF8F0;
+}
+
+.palette-lavanda {
+  background-color: #FDF6FF;
+  padding: 40px;
+}
+
+.color-lavanda {
+  background-color: #FDF6FF;
+  border: 2px solid #FFADC6;
+  color: #444444;
+}
+
+.color-rosa-alegre {
+  background-color: #FFADC6;
+  color: #444444;
+}
+
+.color-celeste {
+  background-color: #91E5F6;
+  color: #444444;
+}
+
+.color-amarillo-calido {
+  background-color: #FFD972;
+  color: #444444;
+}
+
+.color-gris-medio {
+  background-color: #444444;
+  color: #FDF6FF;
+}
+
+.palette-calido {
+  background-color: #F9F9F2;
+  padding: 40px;
+}
+
+.color-calido {
+  background-color: #F9F9F2;
+  border: 2px solid #CDEAC0;
+  color: #3A3A3A;
+}
+
+.color-verde-suave {
+  background-color: #CDEAC0;
+  color: #3A3A3A;
+}
+
+.color-rosa-suave {
+  background-color: #FFCAD4;
+  color: #3A3A3A;
+}
+
+.color-gris-piedra {
+  background-color: #3A3A3A;
+  color: #F9F9F2;
+}
+
+.color-durazno {
+  background-color: #FFD6A5;
+  color: #3A3A3A;
+}
+
+.palette-salmon {
+  background-color: #FFF5F3;
+  padding: 40px;
+}
+
+.palette-salmon-title {
+  text-align: center;
+  color: #FA8072;
+  font-family: sans-serif;
+}
+
+.color-salmon-main {
+  background-color: #FA8072;
+  color: #FFF5F3;
+}
+
+.color-salmon-claro {
+  background-color: #FFD1C7;
+  color: #FA8072;
+}
+
+.color-coral-suave {
+  background-color: #FFB09E;
+  color: #7A3B2E;
+}
+
+.color-rojo-coral {
+  background-color: #F25C54;
+  color: #FFF5F3;
+}
+
+.color-terracota {
+  background-color: #B85042;
+  color: #FFF5F3;
+}

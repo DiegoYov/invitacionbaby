@@ -1,0 +1,578 @@
+:root {
+  --bg-main: #FAFAFA;
+  --secondary: #9ADBC5;
+  --detail: #F6A6A1;
+  --text-main: #2C2C2C;
+  --accent: #F6E27F;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.section-img {
+  height: 15dvh;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.section-iframe {
+  height: 30dvh;
+  width: 90%;
+  border: 0;
+}
+
+.text-personalizado{
+  font-size: 1.1rem;
+}
+.animated-arrow {
+  animation: bounceDown 1.2s infinite;
+}
+@keyframes bounceDown {
+  0%   { transform: translateY(0);}
+  30%  { transform: translateY(10px);}
+  50%  { transform: translateY(0);}
+  70%  { transform: translateY(10px);}
+  100% { transform: translateY(0);}
+}
+
+
+.body-bg {
+  font-family: 'Nunito', sans-serif;
+  color: var(--text-main);
+  background: linear-gradient(135deg, var(--secondary) 0%, #FFB7C5 100%);
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Evita el scroll en la página de bienvenida */
+}
+
+.welcome-card {
+  background: #fff;
+  border: 3px solid var(--detail);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+}
+
+.welcome {
+  text-align: center;
+}
+
+.lunera{
+  width: 20%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+#user-info {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-family: 'Great Vibes', cursive;
+}
+
+#open-invitation {
+  /* Eliminamos estilos de botón para que solo se vea la imagen */
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-top: 1.5rem; /* Añadimos un margen para separarlo del texto */
+  cursor: pointer;
+  animation: urgent-shake 1.5s infinite;
+}
+
+#open-invitation img {
+  width: 50%; /* Hacemos la imagen de la carta más grande */
+}
+
+@keyframes urgent-shake {
+  0%, 50%, 100% { transform: rotate(0deg); }
+  5%, 15%, 25%, 35%, 45% { transform: rotate(4deg); }
+  10%, 20%, 30%, 40% { transform: rotate(-4deg); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: var(--secondary);
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 20px;
+}
+
+.modal-content h2 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: black;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus {
+  outline: none; /* Quitamos el borde azul por defecto del navegador */
+  border-color: var(--detail); /* Cambiamos el color del borde al hacer foco */
+  transform: scale(1.2); /* Hacemos el input un 3% más grande */
+  box-shadow: 0 0 10px rgba(246, 166, 161, 0.5); /* Añadimos un resplandor suave */
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+a {
+  color: #776363; /* gris oscuro */
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+a:hover {
+  color: #F6A6A1; /* salmón claro */
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+
+.welcome-text{
+  font-size: 2rem;
+
+}
+
+#save-info {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background: var(--detail);
+  color: #fff;
+  cursor: pointer;
+}
+
+
+.snap-container {
+  height: 100dvh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-snap-align: start;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+h1, h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  background: var(--secondary);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Estilos del nuevo diseño del countdown */
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 0 1rem;
+}
+
+.countdown-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1rem;
+  min-width: 80px;
+  text-align: center;
+}
+
+.countdown-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--text-main);
+  font-family: 'Nunito', sans-serif;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  animation: subtlePulse 3s ease-in-out infinite;
+}
+
+.countdown-label {
+  font-size: 0.9rem;
+  color: var(--text-main);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.countdown-separator {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--detail);
+  margin: 0 0.5rem;
+}
+
+@keyframes subtlePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.95; }
+}
+
+/* Animación para cuando el evento ya pasó */
+.countdown-ended {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--detail);
+  background: linear-gradient(135deg, var(--accent) 0%, #F4D03F 100%);
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+  border: 3px solid var(--detail);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  animation: celebration 1s ease-in-out infinite alternate;
+}
+
+@keyframes celebration {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
+/* Responsive design para móviles */
+@media (max-width: 768px) {
+  .countdown-container {
+    gap: 0.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .countdown-card {
+    min-width: 60px;
+    padding: 1rem 0.5rem;
+    flex-shrink: 0; /* Evita que las tarjetas se compriman */
+  }
+
+  .countdown-number {
+    font-size: 1.8rem;
+  }
+
+  .countdown-label {
+    font-size: 0.7rem;
+  }
+
+  .countdown-separator {
+    font-size: 1.5rem;
+    margin: 0 0.25rem;
+    flex-shrink: 0; /* Evita que los separadores se compriman */
+  }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .countdown-container {
+    gap: 0.3rem;
+    padding: 0 0.3rem;
+  }
+
+  .countdown-card {
+    min-width: 50px;
+    padding: 0.8rem 0.3rem;
+  }
+
+  .countdown-number {
+    font-size: 1.5rem;
+  }
+
+  .countdown-label {
+    font-size: 0.6rem;
+  }
+
+  .countdown-separator {
+    font-size: 1.2rem;
+    margin: 0 0.1rem;
+  }
+}
+
+/* Estilos para el countdown original (mantenidos por compatibilidad) */
+.countdown {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--detail);
+}
+
+footer {
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  color: #777;
+}
+
+.scroll-down-hint {
+  padding-bottom: 1rem; /* Un poco de espacio para que no quede pegado al borde */
+  color: #555;
+  font-size: 0.9rem;
+}
+.details-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(250, 214, 165, 0.3) 100%);
+  border: 2px solid var(--detail);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+  margin-top: 1rem;
+}
+
+.details-card i {
+  color: var(--detail);
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.details-card p {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: var(--text-main);
+}
+
+#detalles h2 {
+  color: var(--detail);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.details-card:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .details-card {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+  .details-card p {
+    font-size: 1rem;
+  }
+}
+
+.btn-calendar {
+  background: var(--detail);
+  color: white;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Timeline Styles */
+.timeline {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-left: 40px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--secondary), var(--detail));
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 30px;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.3s; }
+.timeline-item:nth-child(3) { animation-delay: 0.5s; }
+
+.timeline-marker {
+  position: absolute;
+  left: -27px;
+  top: 10px;
+  width: 16px;
+  height: 16px;
+  background: var(--detail);
+  border-radius: 50%;
+  border: 4px solid white;
+  box-shadow: 0 0 0 2px var(--secondary);
+  z-index: 1;
+}
+
+.timeline-content {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--detail);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-content h3 {
+  color: var(--detail);
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.timeline-content p {
+  color: var(--text-main);
+  font-size: 1rem;
+  margin: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .timeline {
+    padding-left: 30px;
+  }
+
+  .timeline-marker {
+    left: -22px;
+    width: 14px;
+    height: 14px;
+  }
+
+  .timeline-content {
+    padding: 15px;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .timeline-content p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Estilos para la sección de juegos */
+.games-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px dashed var(--accent);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-top: 1rem;
+  max-width: 450px;
+  width: 90%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.games-card:hover {
+  transform: rotate(2deg) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.games-card h2 {
+  color: var(--detail);
+  font-size: 2rem;
+}
+
+.game-icons {
+  margin-top: 1rem;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  color: var(--secondary);
+}
+
+.game-icons i {
+  transition: transform 0.3s ease;
+}
+
+.game-icons i:hover {
+  transform: scale(1.2) rotate(-10deg);
+  color: var(--detail);
+}
