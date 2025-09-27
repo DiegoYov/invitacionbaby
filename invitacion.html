@@ -7,31 +7,31 @@
   <title>Invitación Baby Shower</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Nunito:wght@300;400;700&display=swap"
     rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoA6DQD1P1L1QnE2e+6p5p0iDfQ2l5r5j6k2R5V0w8AV2Xp" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-    <link href="styles.css" rel="stylesheet">
-  <style>
-    body {
-      font-family: nunito;
-    }
-  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link href="styles.css" rel="stylesheet">
+  <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>
+
 </head>
 
 <body>
+  <audio id="background-audio" src="multimedia/La Patita Lulú.mp3" autoplay loop></audio>
+  <button id="mute-btn" class="mute-btn"><i class="bi bi-volume-up"></i></button>
+
+  
+
+  <!-- Indicador de Swipe Fijo -->
+  <div id="swipe-indicator">
+    <span class="speech-bubble">Desliza abajo para ver más</span>
+    <dotlottie-wc src="https://lottie.host/a24bb92f-fa68-4fa1-925a-e9ac9888c14f/tgOxVVyiFL.lottie" autoplay loop></dotlottie-wc>
+  </div>
+
   <div class="snap-container">
-    
+
     <!-- Portada bienvenida -->
     <section id="bienvenida">
-      <img src="multimedia/thanks.png" class="section-img">
-      <h1 class="welcome-text">Un regalo del cielo está en camino</h1>
-      <p class="text-personalizado"></p>
-      <br>
-      <br>
-      <div style="display: flex; flex-direction: column; align-items: center; margin-top: 10px;">
-        <p class="scroll-down-hint"><em>Desliza hacia abajo para ver más</em></p>
-        <i class="bi bi-arrow-down-circle animated-arrow" style="font-size: 2.5rem; color: #F6A6A1;"></i>
-      </div>
+        <img src="multimedia/thanks.png" class="section-img">
+        <h1 class="welcome-text">Un regalo del cielo está en camino</h1>
+        <p class="text-personalizado"></p>      
     </section>
 
     <!-- Cuenta regresiva -->
@@ -64,7 +64,6 @@
       </p>
       <br>
       <div style="display: flex; flex-direction: column; align-items: center; margin-top: 10px;">
-        <i class="bi bi-arrow-down-circle animated-arrow" style="font-size: 1.5rem; color: #F6A6A1;"></i>
       </div>
     </section>
 
@@ -73,78 +72,91 @@
       <img src="multimedia/location.png" class="section-img" alt="Icono de ubicación">
       <div class="details-card">
         <h2>La cita es aquí</h2>
-        <a href="https://maps.app.goo.gl/cZmXZQ7S9yVxrjiL9"><p><i class="bi bi-geo-alt-fill"></i> Salón Comunal Barrio el Roble</p></a>
+        <a href="https://maps.app.goo.gl/cZmXZQ7S9yVxrjiL9">
+          <p><i class="bi bi-geo-alt-fill"></i> Salón Comunal B/ El Roble</p>
+        </a>
         <p><i class="bi bi-building"></i> Tunja, Boyacá</p>
         <p><i class="bi bi-calendar-event"></i> Fecha: 2 de Noviembre</p>
         <p><i class="bi bi-clock-fill"></i> Hora: 2:00 PM</p>
       </div>
       <br>
-      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Baby%20Shower%20Haddasha%20Salom%C3%A9&dates=20251102T190000Z/20251102T230000Z&details=Baby%20shower%20con%20agenda%20de%20bienvenida%2C%20juegos%2C%20y%20sorpr%C3%A9sas.&location=5.560920%2C%20-73.353727" target="_blank">
+      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Baby%20Shower%20Haddasha%20Salom%C3%A9&dates=20251102T190000Z/20251102T230000Z&details=Baby%20shower%20con%20agenda%20de%20bienvenida%2C%20juegos%2C%20y%20sorpr%C3%A9sas.&location=5.560920%2C%20-73.353727"
+        target="_blank">
         <button class="btn-calendar">Agregalo a tu calendario</button>
       </a>
     </section>
 
-    
+
 
     <!-- Mensaje -->
     <section id="mensaje">
-        <img src="multimedia/biblia.png" class="section-img" alt="imagen biblia">
-      <h2 class="welcome-text">Dejad a los niños venir a mí, y no se lo impidáis; porque de los tales es el reino de los cielos.</h2>
-      <p>Mateo 19:14</p>
+      <img src="multimedia/biblia.png" class="section-img" alt="imagen biblia">
+      <h2 class="welcome-text">He aquí, herencia de Jehová son los hijos; <br> Cosa de estima el fruto del vientre. </h2>
+      <p>Salmos 127:3</p>
     </section>
 
     <!-- Juegos -->
     <section id="juegos">
       <img src="multimedia/game.png" class="section-img" alt="">
       <div class="games-card">
-        <h2 class="welcome-text"">¡Prepárate para la diversión!</h2>
+        <h2 class="welcome-text">¡Hola {{name}}, prepárate para la diversión!</h2>
         <p>Tendremos dinámicas llenas de sorpresas y risas. Ven con toda tu energía porque los juegos serán la excusa perfecta para celebrar en grande.</p>
-        <div class="game-icons">
+        <div class=" game-icons">
           <i class="bi bi-dice-5"></i>
           <i class="bi bi-gift-fill"></i>
           <i class="bi bi-emoji-laughing"></i>
-        </div>
       </div>
-    </section>
+  </div>
+  </section>
 
-    <!-- Cómo llegar -->
-    <section id="mapa">
-      <h2 class="welcome-text">Cómo llegar</h2>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d535.128353469556!2d-73.35382491512608!3d5.5608122678846925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1ssaon%20comulal%20roble!5e1!3m2!1ses-419!2sco!4v1758508985143!5m2!1ses-419!2sco"
-        class="section-iframe" allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
-      <a href="https://maps.app.goo.gl/GBCK55jDYP4H6Zmv5" target="_blank"><button>Ir a Maps</button></a>
+  <!-- Cómo llegar -->
+  <section id="mapa">
+    <img src="multimedia/coche.png" class="section-img" alt="">
+    <h2 class="welcome-text">Cómo llegar</h2>
+    <p> Aquí te dejamos el mapa para que puedas llegar, también puedes ir a Maps dando click en el botón "Ir a Maps"</p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d707.5775316827526!2d-73.35387027363248!3d5.5608353502924714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses-419!2sco!4v1758848325310!5m2!1ses-419!2sco" width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <br>
+    <a href="https://maps.app.goo.gl/aNC5tN7PRWMsBJ256?hl=es&source=android&ie=UTF8&list=1&daddr=5.560920%2C%20-73.353727"
+      target="_blank"><button>Ir a Maps</button></a>
 
-    </section>
+  </section>
 
-    <!-- Confirmar asistencia -->
-    <section id="asistencia">
-      <h2>¿Contamos contigo?</h2>
-      <p>Tu presencia hará de este día algo único. Haznos saber si podrás acompañarnos y agéndalo en tu calendario para que no te lo pierdas.</p>
-      <br>
-      <a href="https://calendar.google.com/" target="_blank">
-        <button>Confirma tu asistencia</button>
-      </a>
-    </section>
+  <!-- Confirmar asistencia -->
+  <section id="asistencia">
+    <img src="multimedia/friends.png" class="section-img" alt="">
+    <h2 id="personalized-question">¿Contamos contigo?</h2>
+    <p id="personalized-text">Tu presencia hará de este día algo único. Haznos saber si podrás acompañarnos y agéndalo en tu calendario para
+      que no te lo pierdas.</p>
+    <br>
+    <button id="confirm-btn" class="btn-calendar">Confirma tu asistencia</button>
+    
+    
+    <br>
+    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Baby%20Shower%20Haddasha%20Salom%C3%A9&dates=20251102T190000Z/20251102T230000Z&details=Baby%20shower%20con%20agenda%20de%20bienvenida%2C%20juegos%2C%20y%20sorpr%C3%A9sas.&location=5.560920%2C%20-73.353727"> Click para agregarlo a tu calendario</a>
+  </section>
 
-    <!-- Te esperamos -->
-    <section id="esperamos">
-      <h2>¡Te esperamos con mucho cariño!</h2>
-    </section>
+  <!-- Te esperamos -->
+  <section id="esperamos">
+    <img src="multimedia/babygirl.png" height="40%">
+    <h2>¡Te esperamos con mucho cariño!</h2>
+    <h3>¡Nos hará muy felices contar contigo en esta celebración!</h3>
+    <br><br><br><br>
+    <footer class="section-footer">
+      <p>¿Quieres una invitación así?, <a href="https://wa.me/573504719002?text=Hola%20Diego%2C%20me%20gust%C3%B3%20la%20invitaci%C3%B3n%20y%20quiero%20que%20me%20ayudes%20a%20hacer%20una%20as%C3%AD..." style="color: blue;">Contactame</a></p>
+    </footer>
   </div>
 
 
-  <!--
+<!--
   <footer>
-    Invitación elaborada con ♥️ <br> Diego Pedraza © Todos los derechos reservados
+    <p>
+      Invitación elaborada con ♥️ <br> Diego Pedraza © Todos los derechos reservados
+    </p>
   </footer>
   -->
 
+
   <script src="scripts.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoA6VKHr8zWv1pAo7PEN4lH/1hb6Q0v6U8Q5Kk5tBT+0PkF"
-    crossorigin="anonymous"></script>
 </body>
 
 </html>

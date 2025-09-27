@@ -6,6 +6,11 @@
   --accent: #F6E27F;
 }
 
+body {
+  font-family: 'Nunito', sans-serif;
+  background: linear-gradient(135deg, #B0E0E6 0%, #E6F7FF 100%);
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 .section-img {
@@ -74,9 +79,16 @@ h1 {
 }
 
 #user-info {
+  position: relative;
   margin-bottom: 1rem;
   font-size: 2rem;
   font-family: 'Great Vibes', cursive;
+}
+
+@keyframes starFade {
+  0% { opacity: 0; transform: scale(0) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(180deg); }
+  100% { opacity: 0; transform: scale(0) rotate(360deg); }
 }
 
 #open-invitation {
@@ -185,7 +197,7 @@ a:hover {
 
 .welcome-text{
   font-size: 2rem;
-
+  font-weight: bold;
 }
 
 #save-info {
@@ -207,7 +219,7 @@ a:hover {
 
 section {
   scroll-snap-align: start;
-  height: 100dvh;
+  height: 100lvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -215,6 +227,12 @@ section {
   padding: 2rem;
   text-align: center;
 }
+
+#bienvenida {
+  justify-content: flex-start;
+  padding-top: 15vh;
+}
+
 
 h1, h2 {
   font-family: 'Great Vibes', cursive;
@@ -575,4 +593,81 @@ footer {
 .game-icons i:hover {
   transform: scale(1.2) rotate(-10deg);
   color: var(--detail);
+}
+
+/* Estilos para el indicador de swipe */
+#swipe-indicator {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000; /* Asegura que esté por encima de todo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none; /* Permite que los clics pasen a través del elemento */
+  transition: opacity 0.4s ease-in-out;
+  opacity: 1; /* Más visible */
+}
+
+#swipe-indicator dotlottie-wc {
+  width: 120px;
+  height: 120px;
+  opacity: 0.7;
+
+}
+
+.speech-bubble {
+  background: rgba(44, 44, 44, 0.4); /* Más visible */
+  color: white;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+  transition: opacity 0.4s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Borde sutil */
+}
+
+.speech-bubble.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Ocultar el globo de texto en pantallas más grandes donde no es tan necesario */
+@media (min-width: 768px) {
+  .speech-bubble {
+    display: none;
+  }
+}
+
+.mute-btn {
+  position: fixed;
+  right: 20px;
+  top: 5%;
+  background: #9B59B6; /* Color morado */
+  color: white;
+  border: none;
+  border-radius: 50px;
+  width: auto;
+  height: auto;
+  padding: 6px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  z-index: 1001;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+}
+
+.mute-btn:hover {
+  background: #8E44AD; /* Morado más oscuro */
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.mute-btn i {
+  font-size: 1rem;
 }

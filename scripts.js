@@ -1,3 +1,37 @@
+function animateName(element) {
+  const name = element.textContent;
+  element.textContent = '';
+  const userInfo = element.parentElement;
+  let i = 0;
+  const interval = setInterval(() => {
+    if (i < name.length) {
+      element.textContent += name[i];
+      i++;
+    } else {
+      clearInterval(interval);
+    }
+  }, 150);
+
+  // Add stars around the name
+  for (let j = 0; j < 10; j++) {
+    setTimeout(() => {
+      const star = document.createElement('span');
+      star.textContent = '✨';
+      star.style.position = 'absolute';
+      star.style.left = (Math.random() * 80 + 10) + '%';
+      star.style.top = (Math.random() * 80 + 10) + '%';
+      star.style.fontSize = '1.5rem';
+      star.style.pointerEvents = 'none';
+      star.style.animation = 'starFade 1.5s ease-in-out';
+      star.style.animationDelay = (Math.random() * 0.5) + 's';
+      userInfo.appendChild(star);
+      setTimeout(() => {
+        if (star.parentElement) star.remove();
+      }, 1500);
+    }, j * 100);
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('modal');
   const openBtn = document.getElementById('open-invitation');
@@ -43,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
       savedRelation = relation;
       displayName.textContent = name;
       userInfo.style.display = 'block';
+      animateName(displayName);
       modal.style.display = 'none';
     } else {
       alert('Por favor ingresa tu nombre y selecciona una relación.');
@@ -101,3 +136,80 @@ if (name && relation) {
   const textPersonalizado = document.querySelector('.text-personalizado');
   textPersonalizado.textContent = `Querido/a ${name}, como ${relation} de Haddasha Salomé, eres parte de este momento tan especial. Acompáñanos en su Baby Shower y vivamos juntos una tarde de juegos, dulzura y recuerdos únicos.`;
 }
+
+if (name) {
+  const question = document.getElementById('personalized-question');
+  question.textContent = `¿${name}, contamos contigo?`;
+}
+
+if (name) {
+  const juegosH2 = document.querySelector('#juegos .welcome-text');
+  juegosH2.textContent = `Ven preparado para la diversión ${name} !`;
+}
+
+if (name) {
+  const esperamosH2 = document.querySelector('#esperamos h2');
+  esperamosH2.textContent = `¡${name}, te esperamos con mucho cariño!`;
+}
+
+// Audio control for invitacion.html
+document.addEventListener('DOMContentLoaded', () => {
+  const audio = document.getElementById('background-audio');
+  const muteBtn = document.getElementById('mute-btn');
+
+  if (audio && muteBtn) {
+    audio.volume = 0.3; // Set initial volume to 30%
+
+    let isMuted = false;
+
+    muteBtn.addEventListener('click', () => {
+      isMuted = !isMuted;
+      audio.muted = isMuted;
+      const icon = muteBtn.querySelector('i');
+      icon.className = isMuted ? 'bi bi-volume-mute' : 'bi bi-volume-up';
+    });
+  }
+});
+
+
+
+// Lógica para el indicador de swipe
+document.addEventListener('DOMContentLoaded', () => {
+  const swipeIndicator = document.getElementById('swipe-indicator');
+  const speechBubble = document.querySelector('.speech-bubble');
+  const snapContainer = document.querySelector('.snap-container');
+  const esperamosSection = document.getElementById('esperamos');
+
+  function hideSwipeIndicator() {
+    swipeIndicator.style.display = 'none';
+  }
+
+  // Ocultar después de 2 minutos
+  setTimeout(hideSwipeIndicator, 2 * 60 * 1000);
+
+  // Ocultar cuando llegue a la sección "Te esperamos"
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        hideSwipeIndicator();
+      }
+    });
+  }, { threshold: 0.1 });
+
+  if (esperamosSection) {
+    observer.observe(esperamosSection);
+  }
+
+  if (speechBubble && snapContainer) {
+    const hideIndicatorOnFirstScroll = () => {
+      // Oculta solo el globo de texto tan pronto como el usuario se desplaza un poco
+      if (snapContainer.scrollTop > 20) {
+        speechBubble.classList.add('hidden');
+        // Elimina el listener para que no se ejecute más
+        snapContainer.removeEventListener('scroll', hideIndicatorOnFirstScroll);
+      }
+    };
+
+    snapContainer.addEventListener('scroll', hideIndicatorOnFirstScroll);
+  }
+});
