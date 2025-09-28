@@ -213,3 +213,97 @@ document.addEventListener('DOMContentLoaded', () => {
     snapContainer.addEventListener('scroll', hideIndicatorOnFirstScroll);
   }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const confirmBtn = document.getElementById('confirm-btn');
+  const confirmModal = document.getElementById('confirmModal');
+  const nameInput = document.getElementById('nameInput');
+  /*const storedName = document.getElementById('storedName');*/
+
+  const savedName = localStorage.getItem('name');
+
+  if (savedName) {
+    nameInput.value = savedName;
+    /*storedName.innerText = savedName;*/
+  }
+
+  confirmBtn.addEventListener('click', () => {
+    confirmModal.style.display = 'block';
+  });
+
+  const form = document.getElementById('attendanceForm');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = localStorage.getItem('name');
+    const relation = localStorage.getItem('relation');
+    const acompananteRadio = document.querySelector('input[name="acompanantes"]:checked');
+
+    if (!acompananteRadio) {
+      alert('Por favor selecciona una opción de acompañantes.');
+      return;
+    }
+
+    const acompanante = acompananteRadio.value;
+
+    const data = {
+      nombre: name,
+      relacion: relation,
+      acompanante: acompanante
+    };
+
+    try {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbxdKqpsUy7t7l67JOpG3474KnWsO59d9p8OXmpWcLYSiea5LJ0pcjjHu-Rbr_48-P3yEg/exec', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        alert(`✅ Gracias por confirmar tu asistencia, ${name}!`);
+        confirmModal.style.display = 'none';
+      } else {
+        const errorData = await response.json();
+        alert('Error: ' + (errorData.error || 'Error desconocido'));
+      }
+    } catch (error) {
+      alert('Error: ' + error.message);
+    }
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === confirmModal) {
+      confirmModal.style.display = 'none';
+    }
+  });
+});
+
+function closeModal() {
+  document.getElementById('confirmModal').style.display = 'none';
+}
+
+function closeWelcomeModal() {
+  document.getElementById('welcomeModal').style.display = 'none';
+}
+
+// Show welcome modal on page load
+document.addEventListener('DOMContentLoaded', () => {
+  const welcomeModal = document.getElementById('welcomeModal');
+  welcomeModal.style.display = 'block';
+});
+
+// Scroll-triggered animations
+document.addEventListener('DOMContentLoaded', () => {
+  const elements = document.querySelectorAll('.animate-on-scroll');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  elements.forEach(el => observer.observe(el));
+});

@@ -14,6 +14,7 @@
 </head>
 
 <body>
+<canvas id="frost-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></canvas>
   <audio id="background-audio" src="multimedia/La Patita Lulú.mp3" autoplay loop></audio>
   <button id="mute-btn" class="mute-btn"><i class="bi bi-volume-up"></i></button>
 
@@ -29,16 +30,16 @@
 
     <!-- Portada bienvenida -->
     <section id="bienvenida">
-        <img src="multimedia/thanks.png" class="section-img">
-        <h1 class="welcome-text">Un regalo del cielo está en camino</h1>
-        <p class="text-personalizado"></p>      
+        <img src="multimedia/thanks.png" class="section-img animate-on-scroll">
+        <h1 class="welcome-text animate-on-scroll">Un regalo del cielo está en camino</h1>
+        <p class="text-personalizado animate-on-scroll"></p>
     </section>
 
     <!-- Cuenta regresiva -->
     <section id="countdown">
-      <img src="multimedia/timer.png" class="section-img" alt="">
-      <h2 class="welcome-text">Cuenta regresiva para el <br> Baby Shower</h2>
-      <div class="countdown-container">
+      <img src="multimedia/timer.png" class="section-img animate-on-scroll" alt="">
+      <h2 class="welcome-text animate-on-scroll">Cuenta regresiva para el <br> Baby Shower</h2>
+      <div class="countdown-container animate-on-scroll">
         <div class="countdown-card">
           <div class="countdown-number" id="days">00</div>
           <div class="countdown-label">Días</div>
@@ -60,7 +61,7 @@
         </div>
       </div>
       <br>
-      <p style="margin-top: 1.5rem; font-size: 1.1rem; color: #888;">Cada segundo nos acerca más a este día tan especial
+      <p style="margin-top: 1.5rem; font-size: 1.1rem; color: #888;" class="animate-on-scroll">Cada segundo nos acerca más a este día tan especial
       </p>
       <br>
       <div style="display: flex; flex-direction: column; align-items: center; margin-top: 10px;">
@@ -69,8 +70,8 @@
 
     <!-- Detalles del evento -->
     <section id="detalles">
-      <img src="multimedia/location.png" class="section-img" alt="Icono de ubicación">
-      <div class="details-card">
+      <img src="multimedia/location.png" class="section-img animate-on-scroll" alt="Icono de ubicación">
+      <div class="details-card animate-on-scroll">
         <h2>La cita es aquí</h2>
         <a href="https://maps.app.goo.gl/cZmXZQ7S9yVxrjiL9">
           <p><i class="bi bi-geo-alt-fill"></i> Salón Comunal B/ El Roble</p>
@@ -82,7 +83,7 @@
       <br>
       <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Baby%20Shower%20Haddasha%20Salom%C3%A9&dates=20251102T190000Z/20251102T230000Z&details=Baby%20shower%20con%20agenda%20de%20bienvenida%2C%20juegos%2C%20y%20sorpr%C3%A9sas.&location=5.560920%2C%20-73.353727"
         target="_blank">
-        <button class="btn-calendar">Agregalo a tu calendario</button>
+        <button class="btn-calendar animate-on-scroll">Agregalo a tu calendario</button>
       </a>
     </section>
 
@@ -90,15 +91,15 @@
 
     <!-- Mensaje -->
     <section id="mensaje">
-      <img src="multimedia/biblia.png" class="section-img" alt="imagen biblia">
-      <h2 class="welcome-text">He aquí, herencia de Jehová son los hijos; <br> Cosa de estima el fruto del vientre. </h2>
-      <p>Salmos 127:3</p>
+      <img src="multimedia/biblia.png" class="section-img animate-on-scroll" alt="imagen biblia">
+      <h2 class="welcome-text animate-on-scroll">He aquí, herencia de Jehová son los hijos; <br> Cosa de estima el fruto del vientre. </h2>
+      <p class="animate-on-scroll">Salmos 127:3</p>
     </section>
 
     <!-- Juegos -->
     <section id="juegos">
-      <img src="multimedia/game.png" class="section-img" alt="">
-      <div class="games-card">
+      <img src="multimedia/game.png" class="section-img animate-on-scroll" alt="">
+      <div class="games-card animate-on-scroll">
         <h2 class="welcome-text">¡Hola {{name}}, prepárate para la diversión!</h2>
         <p>Tendremos dinámicas llenas de sorpresas y risas. Ven con toda tu energía porque los juegos serán la excusa perfecta para celebrar en grande.</p>
         <div class=" game-icons">
@@ -111,37 +112,37 @@
 
   <!-- Cómo llegar -->
   <section id="mapa">
-    <img src="multimedia/coche.png" class="section-img" alt="">
-    <h2 class="welcome-text">Cómo llegar</h2>
-    <p> Aquí te dejamos el mapa para que puedas llegar, también puedes ir a Maps dando click en el botón "Ir a Maps"</p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d707.5775316827526!2d-73.35387027363248!3d5.5608353502924714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses-419!2sco!4v1758848325310!5m2!1ses-419!2sco" width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <img src="multimedia/coche.png" class="section-img animate-on-scroll" alt="">
+    <h2 class="welcome-text animate-on-scroll">Cómo llegar</h2>
+    <p class="animate-on-scroll"> Aquí te dejamos el mapa para que puedas llegar, también puedes dar click en el botón <br> <strong>"Ir a Maps"</strong></p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d707.5775316827526!2d-73.35387027363248!3d5.5608353502924714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses-419!2sco!4v1758848325310!5m2!1ses-419!2sco" width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="animate-on-scroll"></iframe>
     <br>
     <a href="https://maps.app.goo.gl/aNC5tN7PRWMsBJ256?hl=es&source=android&ie=UTF8&list=1&daddr=5.560920%2C%20-73.353727"
-      target="_blank"><button>Ir a Maps</button></a>
+      target="_blank"><button class="animate-on-scroll">Ir a Maps</button></a>
 
   </section>
 
   <!-- Confirmar asistencia -->
   <section id="asistencia">
-    <img src="multimedia/friends.png" class="section-img" alt="">
-    <h2 id="personalized-question">¿Contamos contigo?</h2>
-    <p id="personalized-text">Tu presencia hará de este día algo único. Haznos saber si podrás acompañarnos y agéndalo en tu calendario para
+    <img src="multimedia/friends.png" class="section-img animate-on-scroll" alt="">
+    <h2 id="personalized-question" class="animate-on-scroll">¿Contamos contigo?</h2>
+    <p id="personalized-text" class="animate-on-scroll">Tu presencia hará de este día algo único. Haznos saber si podrás acompañarnos y agéndalo en tu calendario para
       que no te lo pierdas.</p>
     <br>
-    <button id="confirm-btn" class="btn-calendar">Confirma tu asistencia</button>
-    
-    
+    <button id="confirm-btn" class="btn-calendar animate-on-scroll">Confirma tu asistencia</button>
+
+
     <br>
-    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Baby%20Shower%20Haddasha%20Salom%C3%A9&dates=20251102T190000Z/20251102T230000Z&details=Baby%20shower%20con%20agenda%20de%20bienvenida%2C%20juegos%2C%20y%20sorpr%C3%A9sas.&location=5.560920%2C%20-73.353727"> Click para agregarlo a tu calendario</a>
+    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Baby%20Shower%20Haddasha%20Salom%C3%A9&dates=20251102T190000Z/20251102T230000Z&details=Baby%20shower%20con%20agenda%20de%20bienvenida%2C%20juegos%2C%20y%20sorpr%C3%A9sas.&location=5.560920%2C%20-73.353727" class="animate-on-scroll"> Click para agregarlo a tu calendario</a>
   </section>
 
   <!-- Te esperamos -->
   <section id="esperamos">
-    <img src="multimedia/babygirl.png" height="40%">
-    <h2>¡Te esperamos con mucho cariño!</h2>
-    <h3>¡Nos hará muy felices contar contigo en esta celebración!</h3>
+    <img src="multimedia/babygirl.png" height="40%" class="animate-on-scroll">
+    <h2 class="animate-on-scroll">¡Te esperamos con mucho cariño!</h2>
+    <h3 class="animate-on-scroll">¡Nos hará muy felices contar contigo en esta celebración!</h3>
     <br><br><br><br>
-    <footer class="section-footer">
+    <footer class="section-footer animate-on-scroll">
       <p>¿Quieres una invitación así?, <a href="https://wa.me/573504719002?text=Hola%20Diego%2C%20me%20gust%C3%B3%20la%20invitaci%C3%B3n%20y%20quiero%20que%20me%20ayudes%20a%20hacer%20una%20as%C3%AD..." style="color: blue;">Contactame</a></p>
     </footer>
   </div>
@@ -156,7 +157,126 @@
   -->
 
 
+<div id="welcomeModal" class="modal">
+  <div class="modal-content welcome-modal-content">
+    <span class="close" onclick="closeWelcomeModal()">&times;</span>
+    <h1>¡Ésta es una invitación interactiva! <br> ✨</h1>
+    <p>Esta no es una invitación común: aquí podrás recorrer cada sección, descubrir detalles especiales y divertirte explorando los botones que preparamos para ti.</p>
+    <p>Al final, no olvides confirmar tu asistencia directamente desde esta misma invitación. 💌</p>
+    <button type="button" id="welcomeBtn" onclick="closeWelcomeModal()">¡Empezar!</button>
+  </div>
+</div>
+
+<div id="confirmModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>Queremos vivirlo contigo</h2>
+    <form id="attendanceForm">
+      <div class="form-group">
+        <label for="nameInput">Tu nombre es...</label>
+        <input type="text" id="nameInput" value="">
+        <label for="">¿Correcto?</label>
+      </div>
+      <div class="form-group">
+        <!--<label>¿Correcto? <span id="storedName"></span></label>-->
+      </div>
+      <div class="form-group">
+        <p>Cuéntanos si vendrás solo o acompañado</p>
+        <p>Esto nos ayudará a organizarnos mejor y asegurarnos de que todos disfruten sin que falte nada en la mesa.</p>
+        <br>
+        <div class="radio-options">
+          <label><input type="radio" name="acompanantes" value="solo"> Solo yo</label>
+          <label><input type="radio" name="acompanantes" value="pareja"> Con mi pareja</label>
+          <label><input type="radio" name="acompanantes" value="familia-pequena"> Con mi familia (2-3 personas)</label>
+          <label><input type="radio" name="acompanantes" value="familia-grande"> Con mi familia (4 o más)</label>
+        </div>
+      </div>
+      <button type="submit" id="confirmBtn">Confirmar</button>
+    </form>
+  </div>
+</div>
   <script src="scripts.js"></script>
 </body>
 
 </html>
+<script>
+const canvas = document.getElementById('frost-canvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+class Particle {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.vx = (Math.random() - 0.5) * 2;
+        this.vy = (Math.random() - 0.5) * 2;
+        this.life = 100;
+        this.color = Math.random() > 0.5 ? '#FFD700' : '#C0C0C0';
+    }
+
+    update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.life -= 2;
+    }
+
+    draw() {
+        if (this.life > 0) {
+            ctx.globalAlpha = this.life / 100;
+            ctx.shadowBlur = 15;
+            ctx.shadowColor = this.color;
+            ctx.fillStyle = this.color;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+}
+
+function createParticles(x, y) {
+    for (let i = 0; i < Math.floor(Math.random() * 5) + 8; i++) {
+        particles.push(new Particle(x, y));
+    }
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles = particles.filter(p => p.life > 0);
+    particles.forEach(p => {
+        p.update();
+        p.draw();
+    });
+    requestAnimationFrame(animate);
+}
+
+animate();
+
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+
+document.addEventListener('mousemove', (e) => {
+    createParticles(e.clientX, e.clientY);
+});
+
+document.addEventListener('touchmove', (e) => {
+    const touch = e.touches[0];
+    createParticles(touch.clientX, touch.clientY);
+});
+
+let scrollTimeout;
+window.addEventListener('scroll', () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+        const x = Math.random() * window.innerWidth;
+        const y = Math.random() * window.innerHeight;
+        for (let i = 0; i < 3; i++) {
+            particles.push(new Particle(x + (Math.random() - 0.5) * 100, y + (Math.random() - 0.5) * 100));
+        }
+    }, 100);
+});
+</script>
