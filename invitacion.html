@@ -15,7 +15,7 @@
 
 <body>
 <canvas id="frost-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></canvas>
-  <audio id="background-audio" src="multimedia/La Patita Lulú.mp3" autoplay loop></audio>
+  <audio id="background-audio" src="multimedia/La Patita Lulu - instrumental.mp3" autoplay loop></audio>
   <button id="mute-btn" class="mute-btn"><i class="bi bi-volume-up"></i></button>
 
   
@@ -138,7 +138,9 @@
 
   <!-- Te esperamos -->
   <section id="esperamos">
-    <img src="multimedia/babygirl.png" height="40%" class="animate-on-scroll">
+    <video style="border-radius: 20px; border: 8px solid var(--detail); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);" src="multimedia/Baby3d.mp4" height="40%" class="animate-on-scroll" autoplay loop muted></video>
+    <!--<img src="multimedia/babygirl.png" height="40%" class="animate-on-scroll">-->
+    <br>
     <h2 class="animate-on-scroll">¡Te esperamos con mucho cariño!</h2>
     <h3 class="animate-on-scroll">¡Nos hará muy felices contar contigo en esta celebración!</h3>
     <br><br><br><br>
@@ -161,8 +163,9 @@
   <div class="modal-content welcome-modal-content">
     <span class="close" onclick="closeWelcomeModal()">&times;</span>
     <h1>¡Ésta es una invitación interactiva! <br> ✨</h1>
-    <p>Esta no es una invitación común: aquí podrás recorrer cada sección, descubrir detalles especiales y divertirte explorando los botones que preparamos para ti.</p>
-    <p>Al final, no olvides confirmar tu asistencia directamente desde esta misma invitación. 💌</p>
+    <p id="typing-text">Esta no es una invitación común: aquí podrás recorrer cada sección, descubrir detalles especiales y divertirte explorando los botones que preparamos para ti.
+
+Al final, no olvides confirmar tu asistencia directamente desde esta misma invitación. 💌</p>
     <button type="button" id="welcomeBtn" onclick="closeWelcomeModal()">¡Empezar!</button>
   </div>
 </div>
@@ -171,28 +174,8 @@
   <div class="modal-content">
     <span class="close" onclick="closeModal()">&times;</span>
     <h2>Queremos vivirlo contigo</h2>
-    <form id="attendanceForm">
-      <div class="form-group">
-        <label for="nameInput">Tu nombre es...</label>
-        <input type="text" id="nameInput" value="">
-        <label for="">¿Correcto?</label>
-      </div>
-      <div class="form-group">
-        <!--<label>¿Correcto? <span id="storedName"></span></label>-->
-      </div>
-      <div class="form-group">
-        <p>Cuéntanos si vendrás solo o acompañado</p>
-        <p>Esto nos ayudará a organizarnos mejor y asegurarnos de que todos disfruten sin que falte nada en la mesa.</p>
-        <br>
-        <div class="radio-options">
-          <label><input type="radio" name="acompanantes" value="solo"> Solo yo</label>
-          <label><input type="radio" name="acompanantes" value="pareja"> Con mi pareja</label>
-          <label><input type="radio" name="acompanantes" value="familia-pequena"> Con mi familia (2-3 personas)</label>
-          <label><input type="radio" name="acompanantes" value="familia-grande"> Con mi familia (4 o más)</label>
-        </div>
-      </div>
-      <button type="button" id="confirmBtn">Confirmar</button>
-    </form>
+    <p>Completa el formulario a continuación para confirmar tu asistencia:</p>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfn20mMc3qrWrYtMRVBpM6nH4DiWbfzUMRmhFDwLBDk0rO0DQ/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
   </div>
 </div>
   <script src="scripts.js"></script>

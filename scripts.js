@@ -32,6 +32,24 @@ function animateName(element) {
   }
 }
 
+function typeText(element) {
+  const fullText = element.textContent;
+  element.innerHTML = '';
+  let i = 0;
+  const interval = setInterval(() => {
+    if (i < fullText.length) {
+      if (fullText[i] === '\n') {
+        element.innerHTML += '<br>';
+      } else {
+        element.innerHTML += fullText[i];
+      }
+      i++;
+    } else {
+      clearInterval(interval);
+    }
+  }, 30);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('modal');
   const openBtn = document.getElementById('open-invitation');
@@ -158,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const muteBtn = document.getElementById('mute-btn');
 
   if (audio && muteBtn) {
-    audio.volume = 0.3; // Set initial volume to 30%
+    audio.volume = 0.2; // Set initial volume to 20%
 
     let isMuted = false;
 
@@ -214,88 +232,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Función para enviar datos a Google Sheets
-async function enviarConfirmacion(nombre, acompanantes) {
-  const url = 'https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLi821gZSHUiCr1TXS-K0As6ivLXPgRvNh_ohoptVMaJkAtptU_QkxEE0Nh9fud6ZfH7tZCeIvy0uojrpzLM7pGdqurQK2xJSsLuT9sMpeUIKZ3SzrliRzhb_KSs0NVRdbxNTUdygz_5_BUky1ZUa2zBnoGNwM3jqyDjZ1iU2o9j30-bEF17ZSFjA_RQ9dGAZ2ceiXp7KhcQkBwxrcOD8Gx0CjWX5IBn3ONyTd3f12_jDobeMkn5IjaB9GTdLkEHz8FPNlRPrcxH7r3SXxps3IFUyUYTm2MDVsAtXGmm&lib=MxEWKX0QBc-YFhMMDE1yHVnUvCScSfVSR';
-
-  console.log('Enviando datos:', { nombre, acompanantes });
-
-  try {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        nombre: nombre,
-        acompanantes: acompanantes
-      })
-    });
-
-    console.log('Respuesta del servidor:', response.status, response.statusText);
-
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-    }
-
-    const result = await response.json();
-    console.log('Resultado:', result);
-    return result;
-  } catch (error) {
-    console.error('Error al enviar datos:', error);
-    return { success: false, message: error.message || 'Error de conexión' };
-  }
-}
 document.addEventListener('DOMContentLoaded', () => {
   const confirmBtn = document.getElementById('confirm-btn');
   const confirmModal = document.getElementById('confirmModal');
-  const nameInput = document.getElementById('nameInput');
-  /*const storedName = document.getElementById('storedName');*/
-  const confirmBtnModal = document.getElementById('confirmBtn');
-
-  const savedName = localStorage.getItem('name');
-
-  if (savedName) {
-    nameInput.value = savedName;
-    /*storedName.innerText = savedName;*/
-  }
 
   confirmBtn.addEventListener('click', () => {
     confirmModal.style.display = 'block';
-  });
-
-  confirmBtnModal.addEventListener('click', async () => {
-    const nombre = nameInput.value.trim();
-    const acompanantesRadio = document.querySelector('input[name="acompanantes"]:checked');
-
-    if (!nombre) {
-      alert('Por favor ingresa tu nombre.');
-      return;
-    }
-
-    if (!acompanantesRadio) {
-      alert('Por favor selecciona si vienes solo o acompañado.');
-      return;
-    }
-
-    const acompanantes = acompanantesRadio.value;
-
-    // Deshabilitar botón mientras envía
-    confirmBtnModal.disabled = true;
-    confirmBtnModal.textContent = 'Enviando...';
-
-    const result = await enviarConfirmacion(nombre, acompanantes);
-
-    if (result.success) {
-      alert('¡Gracias! Tu confirmación ha sido registrada.');
-      confirmModal.style.display = 'none';
-    } else {
-      alert('Error al enviar: ' + result.message);
-    }
-
-    // Rehabilitar botón
-    confirmBtnModal.disabled = false;
-    confirmBtnModal.textContent = 'Confirmar';
   });
 
   window.addEventListener('click', (e) => {
@@ -317,6 +259,10 @@ function closeWelcomeModal() {
 document.addEventListener('DOMContentLoaded', () => {
   const welcomeModal = document.getElementById('welcomeModal');
   welcomeModal.style.display = 'block';
+  const typingText = document.getElementById('typing-text');
+  if (typingText) {
+    typeText(typingText);
+  }
 });
 
 // Scroll-triggered animations

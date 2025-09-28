@@ -18,6 +18,7 @@ body {
   width: auto;
   max-width: 100%;
   object-fit: contain;
+  animation: softFloat 3s ease-in-out infinite;
 }
 
 .section-iframe {
@@ -120,6 +121,13 @@ h1 {
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.1); }
+}
+
+@keyframes softFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+  25% { transform: translateY(-5px) rotate(2deg) scale(1.05); }
+  50% { transform: translateY(-10px) rotate(0deg) scale(1.1); }
+  75% { transform: translateY(-5px) rotate(-2deg) scale(1.05); }
 }
 .modal {
   text-align: center;
