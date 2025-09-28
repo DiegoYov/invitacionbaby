@@ -214,11 +214,44 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+// Función para enviar datos a Google Sheets
+async function enviarConfirmacion(nombre, acompanantes) {
+  const url = 'https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLi821gZSHUiCr1TXS-K0As6ivLXPgRvNh_ohoptVMaJkAtptU_QkxEE0Nh9fud6ZfH7tZCeIvy0uojrpzLM7pGdqurQK2xJSsLuT9sMpeUIKZ3SzrliRzhb_KSs0NVRdbxNTUdygz_5_BUky1ZUa2zBnoGNwM3jqyDjZ1iU2o9j30-bEF17ZSFjA_RQ9dGAZ2ceiXp7KhcQkBwxrcOD8Gx0CjWX5IBn3ONyTd3f12_jDobeMkn5IjaB9GTdLkEHz8FPNlRPrcxH7r3SXxps3IFUyUYTm2MDVsAtXGmm&lib=MxEWKX0QBc-YFhMMDE1yHVnUvCScSfVSR';
+
+  console.log('Enviando datos:', { nombre, acompanantes });
+
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        nombre: nombre,
+        acompanantes: acompanantes
+      })
+    });
+
+    console.log('Respuesta del servidor:', response.status, response.statusText);
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+
+    const result = await response.json();
+    console.log('Resultado:', result);
+    return result;
+  } catch (error) {
+    console.error('Error al enviar datos:', error);
+    return { success: false, message: error.message || 'Error de conexión' };
+  }
+}
 document.addEventListener('DOMContentLoaded', () => {
   const confirmBtn = document.getElementById('confirm-btn');
   const confirmModal = document.getElementById('confirmModal');
   const nameInput = document.getElementById('nameInput');
   /*const storedName = document.getElementById('storedName');*/
+  const confirmBtnModal = document.getElementById('confirmBtn');
 
   const savedName = localStorage.getItem('name');
 
@@ -231,45 +264,38 @@ document.addEventListener('DOMContentLoaded', () => {
     confirmModal.style.display = 'block';
   });
 
-  const form = document.getElementById('attendanceForm');
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const name = localStorage.getItem('name');
-    const relation = localStorage.getItem('relation');
-    const acompananteRadio = document.querySelector('input[name="acompanantes"]:checked');
+  confirmBtnModal.addEventListener('click', async () => {
+    const nombre = nameInput.value.trim();
+    const acompanantesRadio = document.querySelector('input[name="acompanantes"]:checked');
 
-    if (!acompananteRadio) {
-      alert('Por favor selecciona una opción de acompañantes.');
+    if (!nombre) {
+      alert('Por favor ingresa tu nombre.');
       return;
     }
 
-    const acompanante = acompananteRadio.value;
-
-    const data = {
-      nombre: name,
-      relacion: relation,
-      acompanante: acompanante
-    };
-
-    try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbxdKqpsUy7t7l67JOpG3474KnWsO59d9p8OXmpWcLYSiea5LJ0pcjjHu-Rbr_48-P3yEg/exec', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      });
-
-      if (response.ok) {
-        alert(`✅ Gracias por confirmar tu asistencia, ${name}!`);
-        confirmModal.style.display = 'none';
-      } else {
-        const errorData = await response.json();
-        alert('Error: ' + (errorData.error || 'Error desconocido'));
-      }
-    } catch (error) {
-      alert('Error: ' + error.message);
+    if (!acompanantesRadio) {
+      alert('Por favor selecciona si vienes solo o acompañado.');
+      return;
     }
+
+    const acompanantes = acompanantesRadio.value;
+
+    // Deshabilitar botón mientras envía
+    confirmBtnModal.disabled = true;
+    confirmBtnModal.textContent = 'Enviando...';
+
+    const result = await enviarConfirmacion(nombre, acompanantes);
+
+    if (result.success) {
+      alert('¡Gracias! Tu confirmación ha sido registrada.');
+      confirmModal.style.display = 'none';
+    } else {
+      alert('Error al enviar: ' + result.message);
+    }
+
+    // Rehabilitar botón
+    confirmBtnModal.disabled = false;
+    confirmBtnModal.textContent = 'Confirmar';
   });
 
   window.addEventListener('click', (e) => {
